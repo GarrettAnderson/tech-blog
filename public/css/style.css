@@ -1,5 +1,23 @@
-header, .project:not(:last-child) {
-  border-bottom: 1px solid #ccc;
+body {
+  background-color: #D9EAD3;
+}
+
+header {
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: #231010;
+}
+
+nav a {
+  color: #D9EAD3;
+}
+
+.title-header {
+  background-color:#D9EAD3;
+}
+
+.title-header a {
+  color: #231010;
 }
 
 .no-button {
