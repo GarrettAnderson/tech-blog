@@ -10,14 +10,30 @@ header {
 
 nav a {
   color: #D9EAD3;
+  margin-right: 20px;
 }
 
 .title-header {
   background-color:#D9EAD3;
+  border-radius: 5px;
+  margin-top: 10px;
+  box-shadow:  6px 6px #a7a7a7;
 }
 
 .title-header a {
   color: #231010;
+}
+
+.post-container {
+  border: 5px solid #231010;
+}
+
+.post-header {
+  background-color: #231010;
+}
+
+.post-header h2 a, .post-header p {
+  color: #ADAEAF;
 }
 
 .no-button {
@@ -25,7 +41,7 @@ nav a {
   border: none;
   padding: 0;
   cursor: pointer;
-  color: #1b89bc;
+  color: #D9EAD3;
   text-decoration: none;
   font-size: 100%;
 }
