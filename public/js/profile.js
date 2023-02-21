@@ -15,7 +15,7 @@ const newFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace('/dashboard');
+      document.location.replace('/posts');
     } else {
       alert('Failed to create post');
     }
@@ -31,12 +31,16 @@ const delButtonHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace('/dashboard');
+      document.location.replace('/posts');
     } else {
       alert('Failed to delete project');
     }
   }
 };
+
+const createCommentHandler = async () => {
+  
+}
 
 document
   .querySelector('.new-project-form')

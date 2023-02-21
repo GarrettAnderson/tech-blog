@@ -15,7 +15,7 @@ const loginFormHandler = async (event) => {
 
     if (response.ok) {
       // If successful, redirect the browser to the profile page
-      document.location.replace('/dashboard');
+      document.location.replace('/posts');
     } else {
       alert(response.statusText);
     }
@@ -37,7 +37,7 @@ const signupFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace('/dashboard');
+      document.location.replace('/posts');
     } else {
       alert(response.statusText);
     }
@@ -62,4 +62,7 @@ document
   .addEventListener('submit', signupFormHandler);
 
   document.querySelector('.sign-up-link')
+  .addEventListener('click', showSignUp)
+
+  document.querySelector('.login-link')
   .addEventListener('click', showSignUp)
