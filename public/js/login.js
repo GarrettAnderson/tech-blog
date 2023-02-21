@@ -15,7 +15,7 @@ const loginFormHandler = async (event) => {
 
     if (response.ok) {
       // If successful, redirect the browser to the profile page
-      document.location.replace('/profile');
+      document.location.replace('/dashboard');
     } else {
       alert(response.statusText);
     }
@@ -37,12 +37,21 @@ const signupFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace('/profile');
+      document.location.replace('/dashboard');
     } else {
       alert(response.statusText);
     }
   }
 };
+
+const showSignUp = () => {
+  const loginForm = document.querySelector('.login-form-container')
+  const signupForm = document.querySelector('.signup-form-container')
+
+  loginForm.classList.toggle('hide')
+  signupForm.classList.toggle('hide')
+
+}
 
 document
   .querySelector('.login-form')
@@ -51,3 +60,6 @@ document
 document
   .querySelector('.signup-form')
   .addEventListener('submit', signupFormHandler);
+
+  document.querySelector('.sign-up-link')
+  .addEventListener('click', showSignUp)
