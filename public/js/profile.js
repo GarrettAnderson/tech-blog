@@ -1,4 +1,5 @@
 const newFormHandler = async (event) => {
+  console.log('submit new post')
   event.preventDefault();
 
   const name = document.querySelector('#post-name').value.trim();
@@ -23,6 +24,7 @@ const newFormHandler = async (event) => {
 };
 
 const delButtonHandler = async (event) => {
+  console.log('delete button clicked')
   if (event.target.hasAttribute('data-id')) {
     const id = event.target.getAttribute('data-id');
 
@@ -38,14 +40,14 @@ const delButtonHandler = async (event) => {
   }
 };
 
-const createCommentHandler = async () => {
-  
-}
+// const createCommentHandler = async () => {
+
+// }
 
 document
   .querySelector('.new-project-form')
   .addEventListener('submit', newFormHandler);
 
 document
-  .querySelector('.post-list')
+  .querySelector('.delete-post-btn')
   .addEventListener('click', delButtonHandler);
