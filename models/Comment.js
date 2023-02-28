@@ -13,7 +13,7 @@ Comment.init(
     },
     title: {
       type: DataTypes.STRING,
-      allowNull: false,
+      defaultValue: 'Comment Title'
     },
     content: {
       type: DataTypes.STRING,

@@ -66,6 +66,9 @@ router.get('/post/:id', async (req, res) => {
           model: User,
           attributes: ['name'],
         },
+        {
+          model: Comment
+        }
       ],
     });
 
@@ -76,7 +79,7 @@ router.get('/post/:id', async (req, res) => {
       logged_in: req.session.logged_in
     });
   } catch (err) {
-    res.status(500).json(err);
+    res.status(400).json(err);
   }
 });
 
@@ -88,6 +91,9 @@ router.get('/editpost/:id', async (req, res) => {
           model: User,
           attributes: ['name'],
         },
+        {
+          model: Comment
+        }
       ],
     });
 

@@ -33,16 +33,45 @@ const delButtonHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace('/posts');
+      document.location.replace('/dashboard');
     } else {
       alert('Failed to delete project');
     }
   }
 };
 
-// const createCommentHandler = async () => {
+const createCommentHandler = async (event) => {
+  console.log('comment handler')
+  event.preventDefault(); 
 
-// }
+  const comment_text = document.querySelector('input[name="comment-body"]').value.trim();
+
+  const post_id = window.location.toString().split('/')[
+      window.location.toString().split('/').length - 1
+  ];
+
+  if (comment_text) {
+      const response = await fetch('/api/comments', {
+          method: 'POST',
+          body: JSON.stringify({
+              post_id: post_id,
+              content: comment_text
+          }),
+          headers: {
+              'Content-Type': 'application/json'
+          }
+      });
+
+      if (response.ok) {
+          console.log('comment posted')
+          document.location.reload();
+
+      } else {
+          alert(response.statusText);
+          document.querySelector('#comment-form').style.display = "block";
+      }
+  }
+}
 
 document
   .querySelector('.new-project-form')
@@ -51,3 +80,6 @@ document
 document
   .querySelector('.delete-post-btn')
   .addEventListener('click', delButtonHandler);
+
+  document.querySelector('.comment-form')
+  .addEventListener('submit', createCommentHandler);
