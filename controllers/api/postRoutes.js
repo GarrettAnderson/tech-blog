@@ -27,6 +27,27 @@ router.get('/', async (req, res) => {
   }
 });
 
+router.get('/:id', async (req, res) => {
+  try {
+    const postData = await Post.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
+        {
+          model: Comment
+        }
+      ],
+    });
+
+
+    res.status(200).json(postData)
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
 
 router.post('/', async (req, res) => {
   try {
@@ -42,12 +63,12 @@ router.post('/', async (req, res) => {
   }
 });
 
-router.put('/:id', withAuth, async (req, res) => {
+router.put('/:id', async (req, res) => {
   try {
     const postData = await Post.update({
       where: {
         id: req.params.id,
-        user_id: req.session.user_id,
+        // user_id: req.body.user_id,
       },
     });
 
@@ -62,12 +83,12 @@ router.put('/:id', withAuth, async (req, res) => {
   }
 });
 
-router.delete('/:id', withAuth, async (req, res) => {
+router.delete('/:id', async (req, res) => {
   try {
     const postData = await Post.destroy({
       where: {
         id: req.params.id,
-        user_id: req.session.user_id,
+        // user_id: req.session.user_id,
       },
     });
 
